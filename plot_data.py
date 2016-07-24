@@ -4,9 +4,12 @@ import seaborn as sns
 
 sns.set_style('white')
 pretty_labels = {
-    's_pos_list': r'$\phi$',
-    's_avg_list': r'$\langle s \rangle$',
-    'x_avg_list': r'$\langle x \rangle$'
+    's_pos': r'$\phi$',
+    's_avg': r'$\langle s \rangle$',
+    'x_avg': r'$\langle x \rangle$',
+    'gdp_avg': 'GDP',
+    'utility_avg': r'$u$',
+    'spread_reduction': r'$\xi \cdot \delta x_0$'
 }
 
 
@@ -21,9 +24,8 @@ def plot_array(data_name):
     fig.savefig(data_name + '.png', bbox_to_inches='tight')
 
 data = np.load('data.npz')
-n_list = data['n_list']
+n_list = data['n']
 
-
-data_names = ['s_pos_list', 's_avg_list', 'x_avg_list']
-for data_name in data_names:
-    plot_array(data_name)
+for data_name in data.files:
+    if data_name != 'n':
+        plot_array(data_name)
