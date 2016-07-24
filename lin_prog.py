@@ -25,13 +25,13 @@ def solve_s(xi, x_0, N, solver=None):
     return np.array(s.value).T[0]
 
 
-n_list = np.arange(0.2, 4., 0.1)
+n_list = np.arange(0.2, 10., 0.1)
 # n_list = np.append(n_list, arange(2., 4., 0.5))
 # n_list = np.append(n_list, arange(2., 5., 0.5))
 # n_list = np.append(n_list, arange(5., 10., 1.))
 # n_list = np.append(n_list, arange(10., 20., 1.))
 n_len = len(n_list)
-n_replicas = 200
+n_replicas = 1000
 s_pos_list = np.zeros((n_len, n_replicas))
 s_avg_list = np.zeros((n_len, n_replicas))
 x_avg_list = np.zeros((n_len, n_replicas))
